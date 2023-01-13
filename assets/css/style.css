@@ -1,0 +1,231 @@
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/* VARIABLES CSS */
+:root {
+  /* colors */
+  --color-veryDarkBlue: #1d1e35;
+  --color-softRed: #f47c57;
+  --color-softViolet: #af67e9;
+  --color-softBlue: #6565e7;
+  --color-veryDarkGrayish: #4a4b5e;
+  --color-darkGrayish: #787887;
+  --color-lightGrayish: #e7e7e9;
+
+  /* font-size */
+  --font-xl: 2rem;
+  --font-question: 0.875rem;
+  --font-desc: 0.75rem;
+
+  /* line-height */
+  --lh-xl: 1.25;
+  --lh-question: 1.21;
+  --lh-desc: 1.5;
+
+  /* font-weight */
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* better for people who browse with the keyboard and know where they are on the site, so I set a different style, making it more visible, taking it from the default.
+ */
+*:focus-visible {
+  outline: #646464 dotted 2px;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+button,
+[type="button"] {
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #b068e9 0%, #6463e7 100%);
+  line-height: 1.5;
+
+  /* improves text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.faq {
+  position: relative;
+}
+
+.faq__container {
+  height: 509px;
+  width: 57.5rem;
+  border-radius: 1.438rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  background: url(../images/bg-pattern-desktop.svg) no-repeat left -576px top -294px,
+    #fff;
+}
+
+.faq::after {
+  content: "";
+  width: 191px;
+  height: 184px;
+  background: url(../images/illustration-box-desktop.svg) no-repeat;
+  position: absolute;
+  top: 196px;
+  left: -93px;
+  /* animation: rotate-show 2s forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; */
+}
+
+@keyframes rotate-show {
+  0% {
+    transform: rotate3d(0, 1, 0, 60deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0turn);
+    opacity: 1;
+  }
+}
+
+.faq__img {
+  padding-top: 70px;
+  position: relative;
+  margin-left: -84px;
+  top: 0;
+}
+
+.faq__img img {
+  width: 472px;
+  left: -84px;
+}
+
+.faq__content {
+  padding-top: 65px;
+  padding-right: 95px;
+}
+
+.faq__title {
+  font: var(--fw-bold) var(--font-xl) / var(--lh-xl) "Kumbh Sans", sans-serif;
+  color: var(--color-veryDarkBlue);
+  margin-bottom: 43px;
+}
+
+.faq__question-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq__question {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.faq__question-box {
+  max-width: 350px;
+}
+
+.faq__question-box::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e8e8ea;
+  position: relative;
+  bottom: 0;
+  grid-row: 2;
+  margin-top: 15px;
+}
+
+.faq__btn {
+  width: 100%;
+  border: none;
+  background: none;
+  font: var(--fw-regular) 14px / 17px "Kumbh Sans", sans-serif;
+  color: var(--color-veryDarkGrayish);
+  cursor: pointer;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq__btn::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 7px;
+  background: url(../images/icon-arrow-down.svg) no-repeat;
+  transform: rotate(0);
+  transition: 0.4s ease-in-out;
+}
+
+.faq__btn.active,
+.faq__btn.active::after {
+  font-weight: 700;
+  color: #1e1f36;
+  transform: rotate(-180deg);
+  transition: 0.4s ease-in-out;
+}
+
+.faq__desc {
+  padding-top: 10px;
+  font: var(--fw-regular) 12px / 1.5 "Kumbh Sans", sans-serif;
+  color: var(--color-darkGrayish);
+  display: none;
+}
+
+.faq__desc.active {
+  display: block;
+}
