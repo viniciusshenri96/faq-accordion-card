@@ -211,10 +211,12 @@ main {
   transition: 0.4s ease-in-out;
 }
 
-.faq__btn.active,
-.faq__btn.active::after {
+.faq__btn.active {
   font-weight: 700;
   color: #1e1f36;
+}
+
+.faq__btn.active::after {
   transform: rotate(-180deg);
   transition: 0.4s ease-in-out;
 }
@@ -227,5 +229,20 @@ main {
 }
 
 .faq__desc.active {
+  display: block;
+}
+
+/* Accordion on CSS */
+.faq__btn:focus {
+  font-weight: 700;
+  color: #1e1f36;
+}
+
+.faq__btn:focus:after {
+  transform: rotate(-180deg);
+  transition: 0.4s ease-in-out;
+}
+
+.faq__btn:focus .faq__desc {
   display: block;
 }
